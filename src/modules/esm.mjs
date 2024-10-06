@@ -4,7 +4,7 @@ import { createServer as createServerHttp } from 'node:http';
 import { fileURLToPath } from 'node:url';
 import * as a from './files/a.json'  with { type: "json" };
 import * as b from './files/b.json'  with { type: "json" };
-import * as c from './files/c.js';
+import './files/c.js';
 
 const random = Math.random();
 
