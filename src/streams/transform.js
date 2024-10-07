@@ -1,5 +1,15 @@
+import { Transform } from 'node:stream';
+
 const transform = async () => {
-    // Write your code here 
+  const reverseStream = new Transform({
+    transform(data, _, callback) {
+      const reversedData = data.toString().split('').reverse().join('');
+      this.push(reversedData);
+      callback();
+    },
+  });
+
+  process.stdin.pipe(reverseStream).pipe(process.stdout);
 };
 
 await transform();
